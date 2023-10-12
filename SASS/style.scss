@@ -1,0 +1,137 @@
+$general-padding: 16px;
+$default-background-color: #000 !default;
+$default-text-color: #2748b3 !default;
+$default-title-color: #6b8eff !default;
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: $default-text-color;
+    margin: 0px;
+    padding: 0px;
+    background-color: $default-background-color;
+    background-image: radial-gradient(
+        #fff,
+        rgba(255, 255, 255, 0.2) 2px,
+        transparent 40px
+      ),
+      radial-gradient(#fff, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+      radial-gradient(#fff, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+      radial-gradient(
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1) 2px,
+        transparent 30px
+      );
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    background-attachment: fixed;
+  }
+
+#index {
+  background-color: $default-background-color;
+  color: $default-text-color;
+}
+
+#blue {
+  background-color: $blue-background-color;
+  color: $blue-text-color;
+}
+
+#red {
+  background-color: $red-background-color;
+  color: $red-text-color;
+}
+
+  article {
+    display: flex;
+    flex-wrap: wrap;
+
+    section {
+      flex-grow: 1;
+      flex-basis: 45%;
+      border: 1px silver solid;
+      padding: $general-padding;
+      margin: 16px;
+      clear: both;
+      overflow: auto;
+      box-sizing: border-box;
+    }
+
+    section#selling-points {
+      flex-grow: 2;
+      flex-basis: 100%;
+    }
+  }
+  
+  @mixin custom-box-shadow {
+    -webkit-box-shadow: 10px 10px 19px -4px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 10px 10px 19px -4px rgba(255, 255, 255, 0.75);
+    box-shadow: 10px 10px 19px -4px rgba(255, 255, 255, 0.75);
+  }
+
+  article section {
+    @include custom-box-shadow;
+  }
+
+  article pre {
+    background: #000;
+    border: 1px solid #ddd;
+    color: #666;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: $general-padding;
+    display: block;
+    white-space: pre-wrap;
+  }
+  
+  article pre.before {
+    float: left;
+    width: 40%;
+  }
+  
+  article pre.after {
+    float: right;
+    width: 40%;
+  }
+  
+  h1,
+  h2,
+  h6 {
+    color: #6b8eff;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h6 {
+    text-align: center;
+    font-size: 2em;
+    padding: $general-padding *2;
+    margin-bottom: 0px;
+  }
+  
+  %message-alert {
+    border: 1px solid #ccc;
+    padding: $general-padding;
+    margin: 16px;
+    color: #2748b3;
+  }
+  
+  .success {
+    @extend %message-alert;
+    background-color: green;
+  }
+  
+  .error {
+    @extend %message-alert;
+    background-color: red;
+  }
+  
+  .warning {
+    @extend %message-alert;
+    background-color: orange;
+  }
